@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styles from "./AnimeItem.module.css";
 
 function AnimeItem() {
@@ -106,7 +106,7 @@ function AnimeItem() {
         </p>
       </div>
       <h3 className={styles["title"]}>Trailer</h3>
-      <div className="trailer_con">
+      <div className={styles["trailer_con"]}>
         {trailer?.embed_url && (
           <iframe
             src={trailer?.embed_url}
@@ -116,6 +116,23 @@ function AnimeItem() {
             allowFullScreen
           ></iframe>
         )}
+      </div>
+      <h3 className={styles["title"]}>Characters</h3>
+      <div className={styles["characters"]}>
+        {characters?.map((character, index) => {
+          const { role } = character;
+          const { images, name, mal_id } = character.character;
+          return (
+            <Link to={`/character/${mal_id}`} key={index}>
+              <div className={styles["character"]}>
+                {" "}
+                <img src={images?.jpg.image_url} alt="" />
+                <h4>{name}</h4>
+                <p>{role}</p>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
