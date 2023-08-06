@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Popular from "./Popular";
 import styles from "./HomePage.module.css";
 import { useGlobalContext } from "../context/global";
+import UpComing from "./UpComing";
+import Airing from "./Airing";
 
 function HomePage() {
   const {
@@ -19,6 +21,10 @@ function HomePage() {
     switch (rendered) {
       case "popular":
         return <Popular rendered={rendered} />;
+      case "airing":
+        return <Airing rendered={rendered} />;
+      case "upcoming":
+        return <UpComing rendered={rendered} />;
       default:
         return <Popular rendered={rendered} />;
     }
@@ -45,7 +51,11 @@ function HomePage() {
               Popular
             </button>
           </div>
-          <form action="" className={styles["search-form"]}>
+          <form
+            action=""
+            className={styles["search-form"]}
+            onSubmit={handleSubmit}
+          >
             <div className={styles["input-control"]}>
               <input
                 type="text"
@@ -53,9 +63,7 @@ function HomePage() {
                 value={search}
                 onChange={handleChange}
               ></input>
-              <button type="submit" onClick={handleSubmit}>
-                Search
-              </button>
+              <button type="submit">Search</button>
             </div>
           </form>
           <div className={styles["filter-btn airing-filter"]}>
@@ -75,7 +83,7 @@ function HomePage() {
                 getUpcomingAnime();
               }}
             >
-              Popular
+              Upcoming
             </button>
           </div>
         </div>

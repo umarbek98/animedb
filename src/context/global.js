@@ -57,7 +57,7 @@ export const GlobalContextProvider = ({ children }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (search) {
-      SearchAnime(search);
+      searchAnime(search);
       state.isSearch = true;
     } else {
       state.isSearch = false;
@@ -89,12 +89,12 @@ export const GlobalContextProvider = ({ children }) => {
     dispatch({ type: GET_AIRING_ANIME, payload: data.data });
   };
   //search anime
-  const SearchAnime = async (anime) => {
+  const searchAnime = async (anime) => {
     dispatch({ type: LOADING });
     const response = await fetch(
-      `${baseUrl}/anime?q=${anime}&order_by=popularity&sort=acs&sfw`
+      `https://api.jikan.moe/v4/anime?q=${anime}&order_by=popularity&sort=asc&sfw`
     );
-    const data = await response;
+    const data = await response.json();
     dispatch({ type: SEARCH, payload: data.data });
   };
 
@@ -117,7 +117,7 @@ export const GlobalContextProvider = ({ children }) => {
         ...state,
         handleChange,
         handleSubmit,
-        SearchAnime,
+        searchAnime,
         search,
         getPopularAnime,
         getUpcomingAnime,
