@@ -10,7 +10,11 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 2rem;
+  background: linear-gradient(to right, #a855f7, #27ae60);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
 .search-container {
   display: flex;
   align-items: center;
@@ -26,11 +30,13 @@
   outline: none;
   border-radius: 30px;
   font-size: 1.2rem;
-  background-color: #fff;
   cursor: pointer;
   transition: all 0.4s ease-in-out;
   font-family: inherit;
   border: 5px solid #e5e7eb;
+  background: linear-gradient(to right, #a855f7, #27ae60);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .search-form {
@@ -47,16 +53,27 @@
   width: 100%;
   padding: 0.7rem 1rem;
   border: none;
+  color: #fff;
   outline: none;
   border-radius: 30px;
   font-size: 1.2rem;
   background-color: #fff;
   border: 5px solid #e5e7eb;
   transition: all 0.4s ease-in-out;
+  background-color: black;
+}
+
+.input-control input:focus {
+  background-color: white;
+  color: black;
 }
 .input-control button {
   position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+}
+.home-header button:focus {
+  background: linear-gradient(to right, #a855f7, #27ae60);
+  -webkit-text-fill-color: white;
 }

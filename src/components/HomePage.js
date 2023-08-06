@@ -9,9 +9,7 @@ function HomePage() {
   const {
     handleSubmit,
     search,
-    searchAnime,
     handleChange,
-    getPopularAnime,
     getUpcomingAnime,
     getAiringAnime,
   } = useGlobalContext();
@@ -30,7 +28,7 @@ function HomePage() {
     }
   };
   return (
-    <div style={{ backgroundColor: "#EDEDED" }}>
+    <div style={{ backgroundColor: "black" }}>
       <header className={styles["home-header"]}>
         <div className={styles["logo"]}>
           <h1>
